@@ -86,5 +86,10 @@ namespace Metodos_de_encriptacion
             string salida = string.Join("", encriptado);
             return salida;
         }
+
+        public void Desencriptar()
+        {
+
+        }
     }
 }
