@@ -71,20 +71,26 @@ namespace Metodos_de_encriptacion
                         if (texto[i] == tabla[x, y])
                         {
                             //Console.WriteLine("Found " + texto[i] + " in [" + x + "," + y + "]");
-                            coordenadasX[i] = x + 1;
-                            coordenadasY[i] = y + 1;
+                            coordenadasX[i] = x;
+                            coordenadasY[i] = y;
                         }
                     }
                 }
             }
 
-            // Junta las coordenadas en un solo array que sirve como cifrado
-            int[] encriptado = new int[texto.Length * 2];
-            coordenadasX.CopyTo(encriptado, 0);
-            coordenadasY.CopyTo(encriptado, texto.Length);
-            // Retornamos el cifrado
-            string salida = string.Join("", encriptado);
-            return salida;
+            // Junta las coordenadas en un solo array empalmando primero las coordenadas X y luego las Y
+            int[] coordenadas = new int[texto.Length * 2];
+            coordenadasX.CopyTo(coordenadas, 0);
+            coordenadasY.CopyTo(coordenadas, texto.Length);
+
+            // Arreglo donde se guardara el mensaje encriptado
+            char[] encriptado = new char[texto.Length];
+
+            for (int i = 0; i < coordenadas.Length; i++)
+            {
+                encriptado[i] = tabla[coordenadas[i], coordenadas[i+1]];
+            }
+            
         }
 
         public void Desencriptar()
