@@ -55,6 +55,7 @@ namespace Metodos_de_encriptacion
             }
         }
 
+        // Metodo para encriptar
         public string Encriptar(char[] texto)
         {
             // Arreglos que guardan las coordenadas donde se encontra la letra en la tabla
@@ -86,16 +87,56 @@ namespace Metodos_de_encriptacion
             // Arreglo donde se guardara el mensaje encriptado
             char[] encriptado = new char[texto.Length];
 
-            for (int i = 0; i < coordenadas.Length; i++)
+            // Encripta el mensaje utlizando las coordenadas de la tabla bifid para crear un texto nuevo cifrado
+            int ce = 0; // Contador auxiliar para llenar el arreglo encriptado
+            for (int i = 0; i < coordenadas.Length; i += 2)
             {
-                encriptado[i] = tabla[coordenadas[i], coordenadas[i+1]];
+                encriptado[ce] = tabla[coordenadas[i], coordenadas[i+1]];
+                ce++;
             }
+            
+            // Retorna el cifrado
+            string salida = new string(encriptado);
+            return salida;
             
         }
 
-        public void Desencriptar()
-        {
+        // Metodo para desencriptar
+        public string Desencriptar(char[] texto)
+        { 
+            int[] coordenadas = new int[texto.Length * 2]; // Arreglo para guardar las coordenadas donde coincida el texto con la tabla bifid
 
+            int cc = 0; // Contador auxiliar para llenar el arreglo cordenadas
+
+            // Recorre la tabla bifid buscando las coincidencias del texto y guarda las coordenadas de esas coincidencias
+            for (int i = 0; i < texto.Length; i++)
+            {
+                for (int x = 0; x < 5; x++)
+                {
+                    for (int y = 0; y < 5; y++)
+                    {
+                        if (texto[i] == tabla[x, y])
+                        {
+                            coordenadas[cc] = x;
+                            cc++;
+                            coordenadas[cc] = y;
+                            cc++;
+                        }
+                    }
+                }
+            }
+
+            char[] desencriptado = new char[texto.Length]; // Arreglo que guarda el mensaje desencriptado
+
+            // Busca las coordenadas en la tabla bifid y devuelve  su valor para el mensaje desencriptado
+            for (int i = 0; i < coordenadas.Length / 2; i++)
+            {
+                desencriptado[i] = tabla[coordenadas[i], coordenadas[i + coordenadas.Length / 2]];
+            }
+             
+            // Retorna el mensaje desencriptado
+            string salida = new string(desencriptado);
+            return salida;
         }
     }
 }

@@ -63,7 +63,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbOutVigenere = new System.Windows.Forms.TextBox();
             this.tbInVigenere = new System.Windows.Forms.TextBox();
-            this.lbAutor = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnBifid = new System.Windows.Forms.Button();
             this.tbKeyBifid = new System.Windows.Forms.TextBox();
@@ -75,6 +74,15 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tbOutBifid = new System.Windows.Forms.TextBox();
             this.tbInBifid = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnXOR = new System.Windows.Forms.Button();
+            this.tbKeyXOR = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbOutXOR = new System.Windows.Forms.TextBox();
+            this.tbInXOR = new System.Windows.Forms.TextBox();
+            this.lbAutor = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabpCesar.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,6 +93,7 @@
             this.groupBox5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -93,6 +102,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
@@ -480,15 +490,6 @@
             this.tbInVigenere.Size = new System.Drawing.Size(284, 245);
             this.tbInVigenere.TabIndex = 9;
             // 
-            // lbAutor
-            // 
-            this.lbAutor.AutoSize = true;
-            this.lbAutor.Location = new System.Drawing.Point(346, 370);
-            this.lbAutor.Name = "lbAutor";
-            this.lbAutor.Size = new System.Drawing.Size(206, 13);
-            this.lbAutor.TabIndex = 2;
-            this.lbAutor.Text = "Por: Ian Daniel Garay Rodríguez [154131]";
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnBifid);
@@ -612,6 +613,102 @@
             this.tbInBifid.Size = new System.Drawing.Size(284, 245);
             this.tbInBifid.TabIndex = 18;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btnXOR);
+            this.tabPage4.Controls.Add(this.tbKeyXOR);
+            this.tabPage4.Controls.Add(this.label12);
+            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Controls.Add(this.label14);
+            this.tabPage4.Controls.Add(this.tbOutXOR);
+            this.tabPage4.Controls.Add(this.tbInXOR);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(871, 321);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "XOR";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnXOR
+            // 
+            this.btnXOR.AutoSize = true;
+            this.btnXOR.Location = new System.Drawing.Point(402, 158);
+            this.btnXOR.Name = "btnXOR";
+            this.btnXOR.Size = new System.Drawing.Size(76, 27);
+            this.btnXOR.TabIndex = 33;
+            this.btnXOR.Text = "Ejecutar";
+            this.btnXOR.UseVisualStyleBackColor = true;
+            this.btnXOR.Click += new System.EventHandler(this.btnXOR_Click);
+            // 
+            // tbKeyXOR
+            // 
+            this.tbKeyXOR.Location = new System.Drawing.Point(391, 84);
+            this.tbKeyXOR.MaxLength = 1;
+            this.tbKeyXOR.Name = "tbKeyXOR";
+            this.tbKeyXOR.Size = new System.Drawing.Size(145, 24);
+            this.tbKeyXOR.TabIndex = 32;
+            this.tbKeyXOR.Text = "A";
+            this.tbKeyXOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(341, 87);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 17);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Clave:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(684, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 17);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Salida";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(130, 28);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 17);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Entrada";
+            // 
+            // tbOutXOR
+            // 
+            this.tbOutXOR.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbOutXOR.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbOutXOR.Location = new System.Drawing.Point(560, 48);
+            this.tbOutXOR.Multiline = true;
+            this.tbOutXOR.Name = "tbOutXOR";
+            this.tbOutXOR.ReadOnly = true;
+            this.tbOutXOR.Size = new System.Drawing.Size(284, 245);
+            this.tbOutXOR.TabIndex = 27;
+            // 
+            // tbInXOR
+            // 
+            this.tbInXOR.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbInXOR.Location = new System.Drawing.Point(26, 48);
+            this.tbInXOR.Multiline = true;
+            this.tbInXOR.Name = "tbInXOR";
+            this.tbInXOR.Size = new System.Drawing.Size(284, 245);
+            this.tbInXOR.TabIndex = 26;
+            // 
+            // lbAutor
+            // 
+            this.lbAutor.AutoSize = true;
+            this.lbAutor.Location = new System.Drawing.Point(346, 370);
+            this.lbAutor.Name = "lbAutor";
+            this.lbAutor.Size = new System.Drawing.Size(206, 13);
+            this.lbAutor.TabIndex = 2;
+            this.lbAutor.Text = "Por: Ian Daniel Garay Rodríguez [154131]";
+            // 
             // Ventana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -644,6 +741,8 @@
             this.tabPage3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -697,6 +796,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbOutBifid;
         private System.Windows.Forms.TextBox tbInBifid;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnXOR;
+        private System.Windows.Forms.TextBox tbKeyXOR;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbOutXOR;
+        private System.Windows.Forms.TextBox tbInXOR;
     }
 }
 

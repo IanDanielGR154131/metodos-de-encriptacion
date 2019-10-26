@@ -17,6 +17,7 @@ namespace Metodos_de_encriptacion
         Atbash atbash = new Atbash();
         Vigenere vigenere = new Vigenere();
         Bifid bifid = new Bifid();
+        Xor xor = new Xor();
 
         public Ventana()
         {
@@ -108,15 +109,36 @@ namespace Metodos_de_encriptacion
 
         private void BtnBifid_Click(object sender, EventArgs e)
         {
-            // Leemos el texto a encriptar y la clave quitando espacios
-            char[] clave = tbKeyBifid.Text.Replace(" ", string.Empty).ToCharArray();
-            char[] texto = tbInBifid.Text.Replace(" ", string.Empty).ToCharArray();
-            // Crea la tabla bifid con la clave
-            bifid.CrearTabla(clave);
-            // Encripta el mensaje y lo muestra
-            tbOutBifid.Text = bifid.Encriptar(texto);
+            if (rbEnBifid.Checked)
+            {
+                // Leemos el texto a encriptar y la clave quitando espacios
+                char[] clave = tbKeyBifid.Text.Replace(" ", string.Empty).ToCharArray();
+                char[] texto = tbInBifid.Text.Replace(" ", string.Empty).ToCharArray();
+                // Crea la tabla bifid con la clave
+                bifid.CrearTabla(clave);
+                // Encripta el mensaje y lo muestra
+                tbOutBifid.Text = bifid.Encriptar(texto);
+            }
+            else if (rbDesBifid.Checked)
+            {
+                // Leemos el texto a desencriptar y la clave quitando espacios
+                char[] clave = tbKeyBifid.Text.Replace(" ", string.Empty).ToCharArray();
+                char[] texto = tbInBifid.Text.Replace(" ", string.Empty).ToCharArray();
+                // Crea la tabla bifid con la clave
+                bifid.CrearTabla(clave);
+                // Desncripta el mensaje y lo muestra
+                tbOutBifid.Text = bifid.Desencriptar(texto);
+            }
 
+        }
 
+        private void btnXOR_Click(object sender, EventArgs e)
+        {
+                // Leemos el texto a encriptar/desencriptar y la clave
+                char clave = tbKeyXOR.Text[0];
+                char[] texto = tbInXOR.Text.ToCharArray();
+                // Encripta/Desencripta el mensaje
+                tbOutXOR.Text = xor.Encriptar(texto, clave);
         }
     }
 }
